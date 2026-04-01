@@ -1285,6 +1285,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 482300, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
   m_PrefabInstance: {fileID: 1420918494}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1547513610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547513612}
+  - component: {fileID: 1547513611}
+  m_Layer: 0
+  m_Name: AsteroidsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1547513611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547513610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e135a82f5edf476419bb4e047b2946c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AsteroidManager
+  asteroidPool: {fileID: 1855032432}
+  target: {fileID: 1904699235}
+  spawnInterval: 2
+  onAsteroidDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1547513612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547513610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.57394, y: -0, z: 27.83038}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1640081991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640081992}
   - component: {fileID: 1640081993}
+  - component: {fileID: 1640081994}
   m_Layer: 0
   m_Name: LeftGun
   m_TagString: Untagged
@@ -1313,7 +1364,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1686500881}
   m_Father: {fileID: 1910451585}
@@ -1330,8 +1381,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daece81557ac5d0428e8f94d3f0f5b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  animator: {fileID: 1640081994}
   bulletPivot: {fileID: 983913851}
   bulletPool: {fileID: 831478365}
+--- !u!95 &1640081994
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640081991}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8ed76ede8d85414eb09ad892281c052, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1686500880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1625,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1855032431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855032433}
+  - component: {fileID: 1855032432}
+  m_Layer: 0
+  m_Name: InstantiateAsteroids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1855032432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855032431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d483fda34e657ce489abada7236f0ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiatePoolObjects
+  prefab: {fileID: 2403386720605717330, guid: 8a862e04edec80b4889b094359bf6bf4, type: 3}
+--- !u!4 &1855032433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855032431}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.57394, y: -0, z: 27.83038}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1904699231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1910451585}
+  - component: {fileID: 1910451586}
   m_Layer: 0
   m_Name: SpaceshipGuns
   m_TagString: Untagged
@@ -1770,6 +1890,22 @@ Transform:
   - {fileID: 831478364}
   m_Father: {fileID: 1904699235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910451586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910451584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fe7c7725c0a334bb35dfbe03c77c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunController
+  guns:
+  - {fileID: 1640081993}
+  - {fileID: 2018484696}
+  playerCamera: {fileID: 1904699234}
 --- !u!1 &2018484694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018484695}
   - component: {fileID: 2018484696}
+  - component: {fileID: 2018484697}
   m_Layer: 0
   m_Name: RightGun
   m_TagString: Untagged
@@ -1815,8 +1952,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daece81557ac5d0428e8f94d3f0f5b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  animator: {fileID: 2018484697}
   bulletPivot: {fileID: 2109203447}
   bulletPool: {fileID: 831478365}
+--- !u!95 &2018484697
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018484694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8ed76ede8d85414eb09ad892281c052, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2109203446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,3 +2165,5 @@ SceneRoots:
   - {fileID: 695261631}
   - {fileID: 1332270704}
   - {fileID: 1709994723}
+  - {fileID: 1855032433}
+  - {fileID: 1547513612}
